@@ -1,0 +1,12 @@
+services:
+  gonkecutor:
+    build: .
+    container_name: gonkecutor
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount a directory to browse (change this to your target)
+      - /home/mateus:/home/mateus
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped

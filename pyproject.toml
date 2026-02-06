@@ -1,0 +1,12 @@
+[project]
+name = "gonkecutor"
+version = "0.1.0"
+description = "A web-based file browser for running Python scripts with custom arguments"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flask>=3.0.0",
+]
+
+[tool.uv]
+dev-dependencies = []

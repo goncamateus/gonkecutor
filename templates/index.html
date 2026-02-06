@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gonkecutor - Python Script Runner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icon.png') }}" alt="Gonkecutor Icon" class="logo-img">
+                <h1>Gonkecutor</h1>
+            </div>
+            <p class="tagline">Click. Configure. Execute.</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Sidebar: Browser + Jobs -->
+            <div class="sidebar">
+                <!-- File Browser Panel -->
+                <section class="panel file-browser">
+                    <div class="panel-header">
+                        <h2>📁 File Browser</h2>
+                        <button class="btn-icon" id="refresh-btn" title="Refresh">🔄</button>
+                    </div>
+
+                    <!-- Path Navigation -->
+                    <div class="path-bar">
+                        <button class="btn-icon" id="parent-btn" title="Go to parent">⬆️</button>
+                        <input type="text" id="current-path" class="path-input" readonly>
+                    </div>
+
+                    <!-- File List -->
+                    <div class="file-list" id="file-list">
+                        <div class="loading">Loading...</div>
+                    </div>
+                </section>
+
+                <!-- Job Tracker Panel -->
+                <section class="panel jobs-panel">
+                    <div class="panel-header">
+                        <h2>📊 Job Tracker</h2>
+                        <button class="btn-icon" id="refresh-jobs-btn" title="Refresh Jobs">🔄</button>
+                    </div>
+                    <div class="jobs-list" id="jobs-list">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📭</div>
+                            <p>No jobs yet</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Execution Panel -->
+            <section class="panel execution-panel">
+                <div class="panel-header">
+                    <h2>⚡ Execute Script</h2>
+                </div>
+
+                <!-- Selected File -->
+                <div class="selected-file" id="selected-file-section">
+                    <label>Selected Script:</label>
+                    <div class="selected-file-display" id="selected-file">
+                        <span class="placeholder">Click a .py file to select</span>
+                    </div>
+                </div>
+
+                <!-- Arguments Input -->
+                <div class="args-section">
+                    <label for="args-input">Arguments:</label>
+                    <input type="text" id="args-input" class="args-input"
+                        placeholder="e.g., --input file.txt --verbose">
+                    <small class="hint">Arguments will be passed to the Python script</small>
+                </div>
+
+                <!-- Command Preview -->
+                <div class="command-preview">
+                    <label>Command Preview:</label>
+                    <code id="command-preview">uv run python &lt;script&gt; &lt;args&gt;</code>
+                </div>
+
+                <!-- Run Button -->
+                <button class="run-btn" id="run-btn" disabled>
+                    <span class="run-icon">▶️</span>
+                    Run Script
+                </button>
+
+                <!-- Output -->
+                <div class="output-section" id="output-section">
+                    <div class="output-header">
+                        <label>Output:</label>
+                        <button class="btn-small" id="clear-output">Clear</button>
+                    </div>
+                    <pre class="output-content" id="output-content"></pre>
+                </div>
+            </section>
+
+            <!-- Preview Panel -->
+            <section class="panel preview-panel">
+                <div class="panel-header">
+                    <h2>👁️ File Preview</h2>
+                    <span id="preview-filename"></span>
+                </div>
+                <pre class="preview-content" id="preview-content">
+                    <span class="placeholder">Select a file to preview its contents</span>
+                </pre>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ❤️ for Python developers</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
