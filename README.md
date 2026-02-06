@@ -1,4 +1,8 @@
-# 🚀 Gonkecutor
+<div align="center">
+
+![](./static/icon.png)
+# Gonkecutor
+</div>
 
 A sleek web-based file browser for running Python scripts with custom arguments.
 
