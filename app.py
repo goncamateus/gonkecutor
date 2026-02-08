@@ -142,7 +142,7 @@ def run_script():
         return jsonify({"error": "Not a Python file"}), 400
     
     # Build the command
-    cmd = ["uv", "run", "python", str(script)]
+    cmd = ["/home/mateus/.local/bin/uv", "run", "python", str(script)]
     
     # Parse and add arguments safely
     if args.strip():
